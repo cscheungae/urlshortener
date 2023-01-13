@@ -4,8 +4,9 @@
     "description": "API project for freeCodeCamp",
     "main": "index.js",
     "scripts": {
-        "start": "ts-node index.js",
-        "dev": "npx nodemon"
+        "start": "node dist/index.js",
+        "dev": "npx nodemon",
+        "build": "npm i && tsc -p tsconfig.json"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
