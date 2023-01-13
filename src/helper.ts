@@ -7,9 +7,14 @@ export const validateReqBody = (req, res, next) => {
     if (!errors.isEmpty()) {
         const isInValidUrl = errors.array().some((err) => err.param === "url");
 
+        if (isInValidUrl) {
+            return res.status(400).json({
+                error: "invalid url",
+            });
+        }
+
         return res.status(400).json({
             errors: errors.array(),
-            error: isInValidUrl ? "invalid url" : undefined,
         });
     }
 
