@@ -1,5 +1,5 @@
 import { validationResult } from "express-validator";
-import dns from "node:dns/promises";
+import dns from "dns";
 
 export const validateReqBody = (req, res, next) => {
     const errors = validationResult(req);
@@ -18,5 +18,5 @@ export const validateReqBody = (req, res, next) => {
 
 export const urlLookup = async (value) => {
     const url = new URL(value);
-    return await dns.lookup(url.hostname);
+    return await dns.promises.lookup(url.hostname);
 };
